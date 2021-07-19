@@ -21,4 +21,5 @@ from django.urls import path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("welcome.urls")),
+    path("calibration/", include("calibration.urls")),
 ]
