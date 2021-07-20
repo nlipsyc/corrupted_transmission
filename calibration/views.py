@@ -1,8 +1,11 @@
+from decimal import Decimal
+from corrupted_transmission.utils import Coordinate
+from typing import Tuple
+from math import sqrt
 import reverse_geocode
-
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
-from django.http import HttpResponse
 
 
 def start_point(request):
@@ -36,3 +39,33 @@ def start_point(request):
     # Carve out to get this joke in
 
     return response
+
+
+def _generate_equilateral_triangle_around_point(
+    center_point: Coordinate, altitude: Decimal
+) -> Tuple[Coordinate, Coordinate, Coordinate]:
+    """Given a center point, generate a triangle around it.
+
+    This will generate a north (a), south-east(b) and south-west(c) point that form an equilateral triangle around the
+    center point. The height of the triangle (apparently the math word is "altitude") is specified in degrees.
+    """
+    # This is how you math I guess?
+    side_length = 2 * altitude / Decimal(sqrt(3))
+
+    ay = center_point.y + altitude / 2
+    ax = center_point.x
+    a = Coordinate(ay, ax)
+
+    by = center_point.y - altitude / 2
+    bx = center_point.x + side_length / 2
+    b = Coordinate(by, bx)
+
+    cy = center_point.y - altitude / 2
+    cx = center_point.x - side_length / 2
+    c = Coordinate(cy, cx)
+
+    return (a, b, c)
+
+
+def triangulation(request):
+    ...
