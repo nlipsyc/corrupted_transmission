@@ -1,11 +1,13 @@
 from decimal import Decimal
-from corrupted_transmission.utils import Coordinate
-from typing import Tuple
 from math import sqrt
+from typing import Tuple
+
 import reverse_geocode
+from corrupted_transmission.utils import Coordinate
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 
 
 def start_point(request):
@@ -68,4 +70,10 @@ def _generate_equilateral_triangle_around_point(
 
 
 def triangulation(request):
-    ...
+    return render(request, "triangulation.html")
+
+
+@csrf_exempt
+def triangulate(request):
+    """Called to calculate distance from each triangle point."""
+    return HttpResponse("ENDPOINT HIT")

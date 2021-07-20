@@ -56,7 +56,7 @@ ROOT_URLCONF = "corrupted_transmission.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["welcome/templates"],
+        "DIRS": ["welcome/templates", "calibration/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
