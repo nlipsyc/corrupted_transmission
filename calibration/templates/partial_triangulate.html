@@ -1,0 +1,13 @@
+<h1>Triangulate</h1>
+<p class="a">A: {{ a }}</p>
+<p class="b">B: {{ b }}</p>
+<p class="c">C: {{ c }}</p>
+{% if is_arrived %}
+    <h2 class="success">
+        TODO: FIGURE OUT A BETTER SUCCESS MESSAGE
+    </h2>
+{% else %}
+    <h2 class="failure">
+        Uneven signal strength detected
+    </h2>
+{% endif %}

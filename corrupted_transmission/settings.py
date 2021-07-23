@@ -122,4 +122,5 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 CITY_LOCATION = Coordinate(43.54, -80.26)
-SECOND_LOCATION = Coordinate(43.610197, -80.250869)
+CITY_NAME = "Guelph"
+ECOLOGICAL_PRESERVE = Coordinate(43.24524, -80.07017)

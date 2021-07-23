@@ -9,6 +9,38 @@
     <title>corrupted_transmission</title>
     <meta name="author" content="Noah Lipsyc">
     <style>
+        body{
+            font-family: monospace;
+        }
+        .failure{
+            color: red;
+            text-align: center;
+        }
+        .success{
+            color: green;
+            text-align: center;
+        }
+        .triangle {
+            font-size: 200%;
+        }
+        .triangle h1 {
+            color: blue;
+            border: black;
+        }
+        .triangle .a {
+            width: 20%;
+            margin: 0 auto;
+        }
+        .triangle .b {
+            padding-top: 25%;
+            padding-right: 15%;
+            float: right;
+        }
+        .triangle .c {
+            padding-top: 25%;
+            padding-left: 15%;
+            float: left;
+        }
     </style>
 
 </head>
@@ -30,8 +62,15 @@
         locate()
     </script>
     {% comment %} <button hx-post="/triangulate" hx-vals='js:navigator.geolocation.getCurrentPosition()'>Triangulate</button> {% endcomment %}
-    <button onclick="locate()">Reacquire location</button>
-    <button hx-post="/calibration/triangulate/" hx-vals='js:coordinates'>Triangulate</button>
+    <button onclick="locate()">Acquire location</button>
+    {% comment %} this doesn't need to be a button {% endcomment %}
+    <div hx-post="/calibration/triangulate/" hx-vals='js:coordinates' class="triangle">
+        <h1>Triangulate</h1>
+        <p class="a">a</p>
+        <p class="b">b</p>
+        <p class="c">c</p>
+
+    </div>
 </body>
 
 </html>
