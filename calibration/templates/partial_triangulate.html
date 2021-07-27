@@ -1,13 +1,23 @@
 <h1>Triangulate</h1>
-<p class="a">A: {{ a }}</p>
-<p class="b">B: {{ b }}</p>
-<p class="c">C: {{ c }}</p>
+<div class="message">
 {% if is_arrived %}
-    <h2 class="success">
-        TODO: FIGURE OUT A BETTER SUCCESS MESSAGE
-    </h2>
+    <div class="success typewriter-l1">
+        <h2>
+            Interstellar transmission received:...............
+        </h2>
+    </div>
+
+    <div class="success typewriter-l2">
+        <h2 class>
+            HAPPY (BELATED) BIRTHDAY!
+        </h2>
+    </div>
 {% else %}
     <h2 class="failure">
         Uneven signal strength detected
     </h2>
 {% endif %}
+</div>
+<p class="a">A: {{ a }}</p>
+<p class="b">B: {{ b }}</p>
+<p class="c">C: {{ c }}</p>

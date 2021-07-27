@@ -22,8 +22,15 @@ def start_point(request):
     latitude = request.GET.get("y", "0")
     longitude = request.GET.get("x", "0")
 
+    try:
+        float(latitude)
+        float(longitude)
+    except ValueError:
+        # This is the one time in my life I actually _want_ cryptic error messages
+        return HttpResponse("Error! XY does not compute.")
+
     # Correct params input, go to next step
-    success_link = reverse("calibration:start-point")
+    success_link = reverse("calibration:triangulation")
 
     city_name = reverse_geocode.search(((latitude, longitude),))[0]["city"]
     country_name = reverse_geocode.search(((latitude, longitude),))[0]["country"]
@@ -111,4 +118,3 @@ def triangulate(request):
     context.update({"is_arrived": is_arrived_at_destination})
 
     return render(request, "partial_triangulate.html", context)
-    # return HttpResponse(f"Uneven signal strength detected\n\n{distances_from_vertices}")

@@ -5,7 +5,7 @@ from corrupted_transmission.utils import Coordinate
 from decimal import Decimal
 
 
-from .views import _generate_equilateral_triangle_around_point, triangulation
+from .views import _generate_equilateral_triangle_around_point
 
 
 class StartPointTest(TestCase):
@@ -14,7 +14,7 @@ class StartPointTest(TestCase):
         response = self.client.get(
             reverse("calibration:start-point"), {"y": str(settings.CITY_LOCATION.y), "x": str(settings.CITY_LOCATION.x)}
         )
-        # TODO check for the link unsing reverse()
+        # TODO check for the link using reverse()
         self.assertIn("<a href", str(response.content))
         self.assertIn("Location acquired, commence triangulation", str(response.content))
 
