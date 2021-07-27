@@ -35,7 +35,6 @@ def start_point(request):
     city_name = reverse_geocode.search(((latitude, longitude),))[0]["city"]
     country_name = reverse_geocode.search(((latitude, longitude),))[0]["country"]
 
-    # TODO write some tests for this
 
     if float(latitude) == 0 and float(longitude) == 0:
         location_message = "Null island does not exist"
@@ -51,7 +50,6 @@ def start_point(request):
         )
         response.write(location_message)
 
-    # Carve out to get this joke in
 
     return response
 
