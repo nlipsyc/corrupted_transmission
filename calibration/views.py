@@ -14,7 +14,7 @@ from django.conf import settings
 # Altitude is the mathy word for height. This coresponds to roughly 1.11km of latitude
 # Don't change this, the values to account for the longitude expansion at this longitude are based off this
 # Yes this is hacky, no I don't care.
-TRIANGLE_ALTITUDE = Decimal(0.5)
+TRIANGLE_ALTITUDE = Decimal(0.01)
 
 
 def start_point(request):
