@@ -39,9 +39,7 @@ class TriangulationTest(TestCase):
         # I miss pytest.parametrize...
         a, b, c = _generate_equilateral_triangle_around_point(Coordinate(-50, 10), Decimal(15))
         side = b.x - c.x
-        import pdb
 
-        pdb.set_trace()
         self.assertAlmostEqual(side, Decimal(17.32), places=2)
 
         # a is above bc
